@@ -1,4 +1,4 @@
-import CezerinClient from 'cezerin2-client';
+import VamshopClient from 'vamshop-client';
 import settings from 'lib/settings';
 
 let api = null;
@@ -8,7 +8,7 @@ const webstoreToken = localStorage.getItem('webstore_token');
 const DEVELOPER_MODE = settings.developerMode === true;
 
 if (dashboardToken || DEVELOPER_MODE === true) {
-	api = new CezerinClient({
+	api = new VamshopClient({
 		apiBaseUrl: settings.apiBaseUrl || '/api/v1',
 		apiToken: dashboardToken,
 		webstoreToken

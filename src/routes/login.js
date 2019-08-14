@@ -1,6 +1,6 @@
 import React from 'react';
 import messages from 'lib/text';
-import CezerinClient from 'cezerin2-client';
+import VamshopClient from 'vamshop-client';
 import settings from 'lib/settings';
 import * as auth from 'lib/auth';
 
@@ -40,7 +40,7 @@ export default class LoginForm extends React.Component {
 			error: null
 		});
 
-		CezerinClient.authorize(settings.apiBaseUrl, this.state.email)
+		VamshopClient.authorize(settings.apiBaseUrl, this.state.email)
 			.then(authorizeResponse => {
 				this.setState({
 					isFetching: false,
