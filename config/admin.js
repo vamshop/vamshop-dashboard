@@ -1,4 +1,4 @@
-process.env.LANGUAGE = 'en';
+process.env.LANGUAGE = 'ru';
 
 // config used by dashboard client side only
 module.exports = {
