@@ -18,6 +18,7 @@ const initialState = {
 		length_unit: 'cm'
 	},
 	emailSettings: null,
+	importSettings: null,
 	emailTemplate: null,
 	checkoutField: null,
 	checkoutFields: [],
@@ -29,8 +30,6 @@ const initialState = {
 	tokens: [],
 	tokenEdit: {},
 	newToken: null,
-	redirects: [],
-	redirectEdit: {},
 	webhooks: [],
 	webhookEdit: {},
 	themeSettings: null,
@@ -51,6 +50,10 @@ export default (state = initialState, action) => {
 			return Object.assign({}, state, { settings: action.settings });
 		case t.EMAIL_SETTINGS_RECEIVE:
 			return Object.assign({}, state, { emailSettings: action.emailSettings });
+		case t.IMPORT_SETTINGS_RECEIVE:
+			return Object.assign({}, state, {
+				importSettings: action.importSettings
+			});
 		case t.EMAIL_TEMPLATE_REQUEST:
 			return Object.assign({}, state, { emailTemplate: null });
 		case t.EMAIL_TEMPLATE_RECEIVE:
@@ -96,10 +99,6 @@ export default (state = initialState, action) => {
 			return Object.assign({}, state, { themeSettings: action.settings });
 		case t.THEME_SETTINGS_SCHEMA_RECEIVE:
 			return Object.assign({}, state, { themeSettingsSchema: action.schema });
-		case t.REDIRECTS_RECEIVE:
-			return Object.assign({}, state, { redirects: action.redirects });
-		case t.REDIRECT_RECEIVE:
-			return Object.assign({}, state, { redirectEdit: action.redirectEdit });
 		case t.WEBHOOKS_RECEIVE:
 			return Object.assign({}, state, { webhooks: action.webhooks });
 		case t.WEBHOOK_RECEIVE:

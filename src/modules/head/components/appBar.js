@@ -93,6 +93,31 @@ export default class AppBarTop extends React.Component {
 
 			rightElements = <ProductsHead />;
 		}
+		if (pathname === '/products/import') {
+			title = messages.drawer_importing;
+
+			if (productCategoryName) {
+				title = (
+					<span>
+						{messages.drawer_importing}
+						<FontIcon
+							style={{ top: 6 }}
+							color="#fff"
+							className="material-icons"
+						>
+							chevron_right
+						</FontIcon>
+						{productCategoryName}
+					</span>
+				);
+			}
+
+			if (productsSelectedCount > 0) {
+				title = `${productsSelectedCount} ${messages.selected}`;
+			}
+
+			rightElements = <ProductsHead />;
+		}
 		if (pathname === '/orders') {
 			title = messages.orders_title;
 
@@ -286,6 +311,8 @@ export default class AppBarTop extends React.Component {
 			title = messages.settings_themeSettings;
 		} else if (pathname === '/settings/checkout') {
 			title = messages.settings_checkoutSettings;
+		} else if (pathname === '/settings/import') {
+			title = messages.drawer_importing;
 		} else if (pathname === '/settings/checkout/fields/email') {
 			title = messages.email;
 			leftButton = (

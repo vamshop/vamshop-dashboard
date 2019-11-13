@@ -41,7 +41,7 @@ export default class ProductsList extends React.Component {
 		});
 
 		return (
-			<div>
+			<div className="product-list">
 				<List>
 					<Head onSelectAll={onSelectAll} />
 					<Divider />

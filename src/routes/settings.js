@@ -15,6 +15,8 @@ import PaymentsEdit from 'modules/settings/paymentsEdit';
 import Tokens from 'modules/settings/tokens/list';
 import TokensEdit from 'modules/settings/tokens/edit';
 import Email from 'modules/settings/email';
+import Import from 'modules/settings/import';
+import GoogleSpredsheet from 'modules/settings/googlespreadsheet';
 import Smtp from 'modules/settings/smtp';
 import EmailTemplate from 'modules/settings/emailTemplates';
 import Checkout from 'modules/settings/checkout';
@@ -104,6 +106,17 @@ const SettingsMenu = () => (
 		<NavLink
 			style={styles.link}
 			activeStyle={styles.linkActive}
+			to="/settings/import"
+			exact={true}
+		>
+			<ListItem
+				primaryText={messages.drawer_importing}
+				leftIcon={<FontIcon className="material-icons">get_app</FontIcon>}
+			/>
+		</NavLink>
+		<NavLink
+			style={styles.link}
+			activeStyle={styles.linkActive}
 			to="/settings/redirects"
 		>
 			<ListItem
@@ -160,6 +173,12 @@ const Settings = ({ match }) => (
 				<Route
 					path="/settings/email/templates/:templateName"
 					component={EmailTemplate}
+				/>
+				<Route path="/settings/import" exact component={Import} />
+				<Route
+					path="/settings/import/googlespreadsheet"
+					exact
+					component={GoogleSpredsheet}
 				/>
 				<Route path="/settings/checkout" exact component={Checkout} />
 				<Route
