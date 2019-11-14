@@ -499,92 +499,90 @@ class ProductImport extends React.Component {
 		};
 		return (
 			<Fragment>
-				<div>
-					<div style={{ margin: 20, color: 'rgba(0, 0, 0, 0.52)' }}>
-						{messages.settings_googlesheet_header}
-						<p>
-							{' '}
-							{messages.settings_googlesheet_products}{' '}
-							{this.state.product_items.length - 1} /{' '}
-							{messages.settings_googlesheet_uploaded}{' '}
-							{this.state.uploadedProducts}
-							{this.state.errors > 0
-								? '/ ' +
-								  messages.settings_googlesheet_errors +
-								  ' ' +
-								  this.state.errors
-								: ''}
-							{this.state.errors > 0 ? this.state.errors : null}
-							<h3 className="dashboardErrorResponse">
+				<div style={{ width: '100%' }}>
+					<div
+						className="spread-sheet-container"
+						style={this.state.productsImport}
+					>
+						<div style={{ margin: 20, color: 'rgba(0, 0, 0, 0.52)' }}>
+							{messages.settings_googlesheet_header}
+							<p>
+								{' '}
+								{messages.settings_googlesheet_products}{' '}
+								{this.state.product_items.length - 1} /{' '}
+								{messages.settings_googlesheet_uploaded}{' '}
+								{this.state.uploadedProducts}
+								{this.state.errors > 0
+									? '/ ' +
+									  messages.settings_googlesheet_errors +
+									  ' ' +
+									  this.state.errors
+									: ''}
+								{this.state.errors > 0 ? this.state.errors : null}
+								<h3 className="dashboardErrorResponse">
+									{!this.state.dashboardsettings
+										? messages.missing_dashboardsettings
+										: null}
+								</h3>
 								{!this.state.dashboardsettings
-									? messages.missing_dashboardsettings
+									? messages.setup_google_spreadsheet
 									: null}
-							</h3>
-							{!this.state.dashboardsettings
-								? messages.setup_google_spreadsheet
-								: null}
-							<span
-								ref={this.loader}
-								style={showLoader}
-								className="loader loader-product-import"
-							>
-								<svg className="circular" viewBox="25 25 50 50">
-									<circle
-										className="path"
-										cx="50"
-										cy="50"
-										r="20"
-										fill="none"
-										strokeWidth="2"
-										strokeMiterlimit="10"
-									/>
-								</svg>
-							</span>
-						</p>
-					</div>
-					<Paper className="paper-box" zDepth={1}>
-						<div style={{ width: '100%' }}>
-							<div
-								className="spread-sheet-container"
-								style={this.state.productsImport}
-							>
-								<fieldset className="spread-sheet-table">
-									<div className="schedule padd-lr">
-										<div className="tbl-header">
-											<table
-												cellPadding="0"
-												cellSpacing="0"
-												id="mytable"
-												style={tableStyle}
-											>
-												<thead>{listHeader}</thead>
-											</table>
-										</div>
-										<div className="tbl-content">
-											<table
-												cellPadding="0"
-												cellSpacing="0"
-												id="mytable"
-												style={tableStyle}
-											>
-												<tbody>{list}</tbody>
-											</table>
-										</div>
+								<span
+									ref={this.loader}
+									style={showLoader}
+									className="loader loader-product-import"
+								>
+									<svg className="circular" viewBox="25 25 50 50">
+										<circle
+											className="path"
+											cx="50"
+											cy="50"
+											r="20"
+											fill="none"
+											strokeWidth="2"
+											strokeMiterlimit="10"
+										/>
+									</svg>
+								</span>
+							</p>
+						</div>
+						<Paper className="paper-box" zDepth={1}>
+							<fieldset className="spread-sheet-table">
+								<div className="schedule padd-lr">
+									<div className="tbl-header">
+										<table
+											cellPadding="0"
+											cellSpacing="0"
+											id="mytable"
+											style={tableStyle}
+										>
+											<thead>{listHeader}</thead>
+										</table>
 									</div>
-								</fieldset>
+									<div className="tbl-content">
+										<table
+											cellPadding="0"
+											cellSpacing="0"
+											id="mytable"
+											style={tableStyle}
+										>
+											<tbody>{list}</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+							<div className="buttons-box">
+								<FlatButton
+									label={messages.import}
+									files={files}
+									primary={true}
+									keyboardFocused={true}
+									onClick={this.fetchData}
+									className={'spread-sheet-save-btn'}
+								/>
 							</div>
-						</div>
-						<div className="buttons-box">
-							<FlatButton
-								label={messages.import}
-								files={files}
-								primary={true}
-								keyboardFocused={true}
-								onClick={this.fetchData}
-								className={'spread-sheet-save-btn'}
-							/>
-						</div>
-					</Paper>
+						</Paper>
+					</div>
 				</div>
 			</Fragment>
 		);

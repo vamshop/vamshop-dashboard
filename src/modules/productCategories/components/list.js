@@ -80,39 +80,39 @@ export default class Categories extends React.Component {
 		return [];
 	}
 
-	//handleClickAll = () => {
-	//this.props.onSelect('all');
-	//document.getElementsByClassName('product-list')[0].style.display = 'block';
-	//if (document.getElementsByClassName('spread-sheet-container')[0] !== undefined) {
-	//document.getElementsByClassName('spread-sheet-container')[0].style.display = 'none';
-	//}
-	//};
-
-	//handleClickRoot = () => {
-	//this.props.onSelect('root');
-	//document.getElementsByClassName('product-list')[0].style.display = 'block';
-	//if (document.getElementsByClassName('spread-sheet-container')[0] !== undefined) {
-	//document.getElementsByClassName('spread-sheet-container')[0].style.display = 'none';
-	//}
-	//};
-
-	//handleClickImport = () => {
-	//document.getElementsByClassName('product-list')[0].style.display = 'none';
-	//if (document.getElementsByClassName('spread-sheet-container')[0] !== undefined) {
-	//document.getElementsByClassName('spread-sheet-container')[0].style.display = 'block';
-	//}
-	//};
-
 	handleClickAll = () => {
 		this.props.onSelect('all');
+		document.getElementsByClassName('product-list')[0].style.display = 'block';
+		if (
+			document.getElementsByClassName('spread-sheet-container')[0] !== undefined
+		) {
+			document.getElementsByClassName(
+				'spread-sheet-container'
+			)[0].style.display = 'none';
+		}
 	};
 
 	handleClickRoot = () => {
 		this.props.onSelect('root');
+		document.getElementsByClassName('product-list')[0].style.display = 'block';
+		if (
+			document.getElementsByClassName('spread-sheet-container')[0] !== undefined
+		) {
+			document.getElementsByClassName(
+				'spread-sheet-container'
+			)[0].style.display = 'none';
+		}
 	};
 
 	handleClickImport = () => {
-		this.props.onSelect('root');
+		document.getElementsByClassName('product-list')[0].style.display = 'none';
+		if (
+			document.getElementsByClassName('spread-sheet-container')[0] !== undefined
+		) {
+			document.getElementsByClassName(
+				'spread-sheet-container'
+			)[0].style.display = 'block';
+		}
 	};
 
 	render() {
