@@ -515,11 +515,11 @@ class ProductImport extends React.Component {
 								  this.state.errors
 								: ''}
 							{this.state.errors > 0 ? this.state.errors : null}
-							{!this.state.dashboardsettings
-								? '<h3 className="dashboardErrorResponse">' +
-								  messages.missing_dashboardsettings +
-								  '</h3>'
-								: null}
+							<h3 className="dashboardErrorResponse">
+								{!this.state.dashboardsettings
+									? messages.missing_dashboardsettings
+									: null}
+							</h3>
 							{!this.state.dashboardsettings
 								? messages.setup_google_spreadsheet
 								: null}
