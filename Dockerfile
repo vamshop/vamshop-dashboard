@@ -16,10 +16,10 @@ RUN echo "deb http://nginx.org/packages/debian/ ${NGINX_CODENAME} nginx" >> /etc
 		nginx
 
 # copy project - LOCAL CODE
-RUN mkdir -p /var/www/cezerin2-admin
-ADD . /var/www/cezerin2-admin
+RUN mkdir -p /var/www/vamshop-dashboard
+ADD . /var/www/vamshop-dashboard
 
-WORKDIR /var/www/cezerin2-admin
+WORKDIR /var/www/vamshop-dashboard
 
 # Nginx config
 COPY nginx/nginx.conf /etc/nginx/
@@ -30,7 +30,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x "/usr/local/bin/docker-entrypoint.sh"
 
 # build project
-RUN cd /var/www/cezerin2-admin \
+RUN cd /var/www/vamshop-dashboard \
 	&& npm install \
 	&& npm cache clean --force \
 	&& npm run build
